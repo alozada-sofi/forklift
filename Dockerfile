@@ -1,11 +1,12 @@
-FROM alpine:3.9
+FROM centos:latest
 MAINTAINER Matt Conroy <elduderino@mailinator.com>
 
-# Install java 8
-RUN apk add --no-cache openjdk8
+# Install java 11
+RUN yum -y install java-11-openjdk 
 
 # Install bash so that the server can actually run.
-RUN apk add --no-cache bash
+RUN yum -y install bash
+RUN yum -y install unzip
 
 # Add forklift server
 WORKDIR /tmp
